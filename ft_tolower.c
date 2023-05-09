@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:23:48 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/09 18:03:28 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/09 16:59:46 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/09 17:02:16 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(char c)
-{
-	unsigned char ch;
 
-	ch = (unsigned char)c;
-	return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'));
+#include "libft.h"
+
+int ft_tolower(int c)
+{
+	if (c >= 'A' || c <= 'A')
+		return c + 32;
+	else
+		return c;
 }

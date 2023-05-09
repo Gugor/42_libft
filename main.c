@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:56:22 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/03 19:14:53 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/09 17:13:28 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main(void)
 {
-	char test1Alph = 'a';
+	/*char test1Alph = 'a';
 	char test2digit = '0';
 	char test3alnum = '0';
 	char test3alnum2 = 'i';
@@ -26,10 +26,10 @@ int main(void)
 	int test4ascii3 = 177;
 	char test5print = '2';
 	int test5print2 = 127;
-	char test5print3 = ' ';
+	char test5print3 = ' ';*/
 	char test6strlen[50] = "Silence is golden";
-	char test6strlen2[50] = "This is more than 5i\200";
-		
+	//char test6strlen2[50] = "This is more than 5i\200";
+/*		
 	// ==========================
 	// TEST 1: is_alpha(char c); 
 	//	return: 0 is alpha char value non-zero otherwise
@@ -135,7 +135,7 @@ int main(void)
 	}
 
 	// ==========================
-	// TEST 5: strlen(cont char *s); 
+	// TEST 6: strlen(cont char *s); 
 	//	return: int of length of string 
 	printf("-----------------------------------\n");
 	printf("=========TEST 6: strlen ==========\n");
@@ -152,6 +152,17 @@ int main(void)
 	{
 		printf("strlen %zu %lu [FAIL]\n",ft_strlen(test6strlen), strlen(test6strlen));
 		printf(">>ft_ %zu \n>>is_ %lu \n",ft_strlen(test6strlen2), strlen(test6strlen2));
-	}
-	
+	}*/
+	// ==========================
+	// TEST 7: toupper(int char c); 
+	//	return: get alpha lower char and transform it to upper 
+	printf("-----------------------------------\n");
+	printf("=========TEST 7: toupper ==========\n");
+	if (ft_toupper(test6strlen[2]) == toupper(test6strlen[2]))
+		printf("toupper:\n%d %d [SUCCESS]\n", ft_toupper(test6strlen[2]), toupper(test6strlen[2]));
+	else
+	{
+		printf("toupper:\n%d %d [FAIL]\n", ft_toupper(test6strlen[2]), toupper(test6strlen[2]));
+		printf(">>ft_ %d\n>>native_ %d \n",ft_toupper(test6strlen[2]), toupper(test6strlen[2]));
+	}	
 }
