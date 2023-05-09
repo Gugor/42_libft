@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:59:46 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/09 17:02:16 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:19:45 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int ft_tolower(int c)
 {
-	if (c >= 'A' || c <= 'A')
-		return c + 32;
+	unsigned char ch;
+
+	ch = (unsigned char)c;
+	if (ch >= 'A' && ch <= 'Z')
+		return ch + 32;
 	else
-		return c;
+		return ch;
 }

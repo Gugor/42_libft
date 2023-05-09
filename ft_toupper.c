@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:32:31 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/09 16:58:56 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:17:25 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int ft_toupper(int c)
 {
-	if (c >= 'a' || c <= 'z')
-		return c - 32;
+	unsigned char ch;
+
+	ch = (unsigned char)c;
+	if (ch >= 97 && ch <= 122)
+		return ch - 32;
 	else
-		return c;
+		return ch;
 }
