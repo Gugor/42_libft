@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/02 15:56:01 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/10 15:55:31 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/09 18:43:53 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/10 19:15:55 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <string.h>
+#include "libft.h"
 
-int ft_isalpha(int c);
-int ft_isdigit(int c);
-int ft_isalnum(int c);
-int ft_isascii(int c);
-int ft_isprint(int c);
-size_t ft_strlen(const char *s);
-void *ft_memset(void *b, int c, size_t len);
-int ft_toupper(int c);
-int ft_tolower(int c);
-void ft_bzero(void *s, size_t n);
-void *ft_memcpy(void *dst, const void *src, size_t n);
+void *ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t i;
+	unsigned char *tmpdst;
+	unsigned char *tmpsrc;
+
+	i = 0;
+	tmpdst = (unsigned char *)dst;
+	tmpsrc = (unsigned char *)src;
+	
+	if( dst == NULL || src == NULL)
+		return (dst);
+	while (i < n)
+	{
+		tmpdst[i] = tmpsrc[i];
+		i++;
+	}
+	return ((void *)tmpdst);
+}
