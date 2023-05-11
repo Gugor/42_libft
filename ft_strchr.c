@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 18:43:53 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/10 19:50:39 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/10 19:51:02 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/11 15:12:32 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+char *ft_strchr(const char *s, int c)
 {
-	size_t i;
-	unsigned char *tmpdst;
-	unsigned char *tmpsrc;
+	unsigned char *str;
+	unsigned char ch;
+	int i;
 
+	str = (unsigned char *)s;
+	ch = (unsigned char) c;
 	i = 0;
-	tmpdst = (unsigned char *)dst;
-	tmpsrc = (unsigned char *)src;
-	
-	if( dst == NULL || src == NULL)
-		return (dst);
-	while (i < n)
+	while (str[i] != '\0')
 	{
-		tmpdst[i] = tmpsrc[i];
-		i++;
+		if(str[i] == ch)
+			return ((char *)str + i);
+		str++;	
 	}
-	return ((void *)tmpdst);
+	if(ch == '\0')
+		return((char *)str + i);
+	return (NULL);
 }

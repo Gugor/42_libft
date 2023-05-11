@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 18:43:53 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/10 19:50:39 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/11 17:22:01 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/11 19:37:35 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+char *ft_strrchr(const char *s, int c)
 {
-	size_t i;
-	unsigned char *tmpdst;
-	unsigned char *tmpsrc;
+	char *str;
+	char ch;
+	char *memo;
+	int i;	
 
+	str = (char *)s;
+	ch  = (char)c;
+	memo = &str[0];
 	i = 0;
-	tmpdst = (unsigned char *)dst;
-	tmpsrc = (unsigned char *)src;
-	
-	if( dst == NULL || src == NULL)
-		return (dst);
-	while (i < n)
+	while(str[i] != '\0')
 	{
-		tmpdst[i] = tmpsrc[i];
+		if(str[i] == ch)
+			memo = str + i ;
 		i++;
 	}
-	return ((void *)tmpdst);
+	if(ch == '\0')
+		memo = str + i;
+	if(memo && str[0])
+		return ((char *)memo);
+	return (NULL);
 }
