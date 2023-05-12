@@ -23,7 +23,6 @@ int main(void)
 	if(ft_tst1 == tst1)
 	{
 		printf("Diff: \33[1;32m[OK]\33[1;0m\n>>ft_ : %s\n>>std : %s\n",ft_tst1,tst1);
-
 	}
 	else 
 	{
@@ -43,5 +42,19 @@ int main(void)
 	else 
 	{
 		printf("Diff: \33[1;31m[OK]\33[1;0m\n>>ft_ : %s\n>>std : %s\n",ft_tst2,tst2);	
+	}
+	//Test 3: this is unicode.
+	char test3[50] = "✌️ this works for me";
+	printf("-----------------------\n");
+	printf("\33[1;33mTest 1: Unicode strings:\33[1;0m\n");
+	char *ft_tst3 = ft_strrchr(test3,'✌️ ');
+	char *tst3    = strrchr(test3,'✌️ ');
+	if(ft_tst3 == tst3)
+	{
+		printf("Diff: \33[1;32m[OK]\33[1;0m\n>>ft_ : %s\n>>std : %s\n",ft_tst3,tst3);
+	}
+	else 
+	{
+		printf("Diff:\n>>ft_ : %s\n>>std : %s \33[1;31m[OK]\33[1;0m \n",ft_tst3,tst3);	
 	}
 }
