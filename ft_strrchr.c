@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 17:22:01 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/11 19:37:35 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/13 12:03:10 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,17 @@
 
 char *ft_strrchr(const char *s, int c)
 {
-	char *str;
-	char ch;
-	char *memo;
 	int i;	
 
-	str = (char *)s;
-	ch  = (char)c;
-	memo = &str[0];
-	i = 0;
-	while(str[i] != '\0')
+	i = ft_strlen(s);
+	while(i >= 0)
 	{
-		if(str[i] == ch)
-			memo = str + i ;
-		i++;
+		if(s[i] == ( char)c)
+		{
+			s += i;
+			return ((char *)s);
+		}
+		i--;
 	}
-	if(ch == '\0')
-		memo = str + i;
-	if(memo && str[0])
-		return ((char *)memo);
 	return (NULL);
 }
