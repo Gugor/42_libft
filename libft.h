@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:56:01 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/20 17:21:24 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:41:39 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,4 @@ void *ft_memchr(const void *s, int c, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t m);
 void *ft_memmove(void *dst, const void *src, size_t len);
 char *ft_strnstr(const char *haystack, const char *needle, size_t len);
-//size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
