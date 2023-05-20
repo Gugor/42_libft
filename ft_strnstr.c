@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:51:30 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/18 20:57:14 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/20 18:16:41 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t n)
 	char *begining;
 	_Bool is_in;
 	size_t nlen;
+
 	i = 0;
 	j = 0;
 	begining = (char *)&haystack[0];
-	nlen = strlen(needle);
+	is_in = 0; 
+	nlen = ft_strlen(needle);
 	if(needle[0] == '\0')
 		return ((char *)haystack);
-	while(haystack[i] && i <= n)
+	while(haystack[i] && i < n)
 	{
-		if(is_in && j >= nlen - 1)
-		{
+		if(is_in && j >= nlen)
 			return (begining);
-		}
-		if(haystack[i] == needle[j])
+		if(haystack[i + j] == needle[j] && (i + j) < n)
 		{
 			if(!is_in)
 			{
@@ -44,8 +44,8 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t n)
 		{
 			is_in = 0;
 			j = 0;
+			i++;
 		}
-		i++;
 	}
 	return (NULL);	
 }

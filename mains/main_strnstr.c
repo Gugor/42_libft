@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 17:57:57 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/18 20:44:46 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:51:14 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,10 +106,10 @@ int main(void)
 	// neelde is in hasttack and n is equals to needle length and is at the end of haystack
 	printf("\n");
 	printf("\33[1;35m---------------------------------\33[1;0m\n");
-	printf("\33[1;35mTest 1 : needle is haystack and n > begining and is EOL\33[1;0m\n");
+	printf("\33[1;35mTest 5 : needle is haystack and n > begining and > EOL\33[1;0m\n");
 	//Variables
-	char t5_haystack[50] = "Silence is gold";
-	char t5_needle[50]  = "gold";
+	char t5_haystack[50] = "Silence is gold"; //(14 + '\0')
+	char t5_needle[50]  = "gold"; //(4 + '\0')
 	int t5_n            = 16;
 	//init
 	void *test5_ft  = ft_strnstr(t5_haystack, t5_needle, t5_n);
@@ -117,11 +117,33 @@ int main(void)
 	if(test5_ft == test5_o)
 	{
 		printf("\33[1;32m[SUCCESS]\33[1;0m\n");
-    	printf("ft_ = \33[1;36m%p\33[1;0m(%s)\nso = \33[1;36m%p\33[1;0m(%s)\n", test5_ft,test5_ft,test5_o, test5_o);
+    	printf("ft_ = \33[1;36m%p\33[1;0m (%s)\nso = \33[1;36m%p\33[1;0m (%s)\n", test5_ft,test5_ft,test5_o, test5_o);
 	}
 	else
 	{
     	printf("\33[1;31m[FAIL]\33[1;0m\n");
-   		printf("ft_ = \33[1;36m%p\33[1;0m(%s)\nso = \33[1;36m%p\33[1;0m(%s)\n",test3_ft,test3_ft, test3_o, test3_o);
+   		printf("ft_ = \33[1;36m%p\33[1;0m (%s)\nso = \33[1;36m%p\33[1;0m (%s)\n",test3_ft,test3_ft, test3_o, test3_o);
+	}	
+	//Test 6: needle is in haystack and the same n > begining 
+	// neelde is in hasttack and n is equals to needle length and is at the end of haystack
+	printf("\n");
+	printf("\33[1;35m---------------------------------\33[1;0m\n");
+	printf("\33[1;35mTest 6 : needle is in haystack and is haystak and n > begining\33[1;0m\n");
+	//Variables
+	char t6_haystack[50] = "AAAA";
+	char t6_needle[50]  = "AAAA";
+	size_t t6_n            = 4;
+	//init
+	void *test6_ft  = ft_strnstr(t6_haystack, t6_needle, t6_n);
+	void *test6_o   = strnstr(t6_haystack, t6_needle, t6_n);
+	if(test6_ft == test6_o)
+	{
+		printf("\33[1;32m[SUCCESS]\33[1;0m\n");
+    	printf("ft_ = \33[1;36m%p\33[1;0m(%s)\nso = \33[1;36m%p\33[1;0m(%s)\n", test6_ft,test6_ft,test6_o, test6_o);
+	}
+	else
+	{
+    	printf("\33[1;31m[FAIL]\33[1;0m\n");
+   		printf("ft_ = \33[1;36m%p\33[1;0m(%s)\nso = \33[1;36m%p\33[1;0m(%s)\n",test6_ft,test6_ft, test6_o, test6_o);
 	}	
 }

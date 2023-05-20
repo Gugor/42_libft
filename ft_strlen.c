@@ -6,11 +6,11 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:59:55 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/03 19:16:23 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/20 17:42:32 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
 
 size_t ft_strlen(const char *s)
 {
