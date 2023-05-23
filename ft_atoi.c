@@ -1,25 +1,32 @@
 
 #include "libft.h"
 
+int ft_isspace(char c)
+{
+	return ((c >= 9 && c <= 13) || c == 32);
+}
+
 int ft_atoi(const char *str)
 {
     int result;
-    _Bool is_neg;
-    _Bool is_num;
-
-    result = 0;
+    int is_neg;
+    
+	result = 0;
     is_neg = 0;
-    is_num = 0;
+	while (ft_isspace(*str))
+		str++;
+    if(*str == '-' || *str == '+')
+	{
+		if(*str == '-')
+			is_neg++;
+		str++;
+	}
     while (*str)
     {
-        if(!is_num && ft_isalpha(*str))
-                break;
-        if(*str == '-' )
-            is_neg++;
+		if(!ft_isdigit(*str))
+			break;
         if(ft_isdigit(*str))
-        {
             result = result * 10 + (*str - 48);
-        }
         str++;
     }
     if(is_neg)

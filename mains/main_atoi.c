@@ -11,7 +11,7 @@ int main(void)
 	printf("\33[1;35m---------------------------------\33[1;0m\n");
 	printf("\33[1;35mTest 3 : str < max && str +\33[1;0m\n");
 	//Variables
-	char t1_str[50] = "1987";
+	char t1_str[50] = "\e06050";
     printf("\n_____Variables_____\n");
     printf("char str = \"%s\"\n",t1_str);
     printf("\n");
