@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_strdup.c                                      :+:      :+:    :+:   */
+/*   main_substr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 16:45:18 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/25 17:27:52 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/25 17:28:04 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/25 20:48:01 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,25 @@
 
 int main(void)
 {
-	printf("//main_strdup.c\n");
-	//Test 1: 
-	//
-	
-	char str[16] = "Silence is gold.";
-	char *dup = strdup(str);
-	printf("Test 1: str != \'\\0\'\n");
-	printf("char *str =\33[1;36m\"%s\"\33[1;0m\n",str);
-	while (*dup != 0 )
-	{
-		printf("strup result = \33[1;36m\"%c\"\33[1;0m\n",*dup);
-		dup++;
-	}
-	return (0);
+	/*printf("//main_substr.c\n");
+	char *s = "";
+	unsigned int strt = 0;
+   	size_t ln = 1;
+
+	char *t1_ft = ft_substr(s,strt, ln); 
+	printf("Test = \"%s\" [%p]", t1, t1);	
+    */
+	// Test 2:
+	char *str = "hola";
+    size_t size = 1;
+    char *ret = ft_substr(str, 2, size);
+    if (!strncmp(ret, "", 1))
+    {
+        printf("TEST_SUCCESS");
+    } else
+    {
+        printf("TEST_FAILED");
+    }
+    free(ret);
+	return(0);
 }
