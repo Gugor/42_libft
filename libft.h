@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:56:01 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/20 22:32:43 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/25 15:31:53 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,4 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t ft_strlcat(char *dst, char *src, size_t dstsize);
 int ft_atoi(const char *str);
+void *ft_calloc(size_t count, size_t size);
