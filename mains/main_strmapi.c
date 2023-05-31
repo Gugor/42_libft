@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   main_strmapi.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 16:42:41 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/31 18:47:02 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/31 17:59:18 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/31 18:38:56 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char *ft_strdup(const char *s1)
+static char ft_toupper2(unsigned int cp,char c)
 {
-	size_t i;
-	size_t len;
-	char *dup;
+	if (c >= 'a' && c <= 'z')
+		c -= 32;
+	return ((char)c);
+}
 
-	i   = 0;
-	len = ft_strlen(s1);
-	dup = (char *)malloc(len + 1 * sizeof(char));
-	if(!dup)
-		return (NULL);
-	while (s1[i] != '\0')
-	{
-		dup[i] = (char)s1[i];
-		i++;	
-	}
-	dup[i] = '\0';
-	return (dup);
+int main(void)
+{
+	char str[26] = "I want to be free and up!!";
+	printf("Original str: %s\n",str);
+	printf("\nModified str: %s\n",ft_strmapi(str,ft_toupper2));
 }
