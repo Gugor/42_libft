@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   striteri.c                                         :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/31 18:44:47 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/31 18:45:15 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/05/31 19:09:50 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/05/31 19:10:22 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+char *ft_strtrim(char const *s1, char const *set)
 {
 	return (NULL);
 }
