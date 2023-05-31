@@ -6,32 +6,31 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 14:08:26 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/30 16:51:00 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/05/31 17:40:16 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int abs_sign(int n, int *neg)
+int get_numsize_signed(int *num, int *neg)
 {
-    if (n < 0)
+    int size;
+    int n;
+
+    size = 0;
+    if (*num < 0)
     {
         *neg = 1;
-        n *= -1;
-    }	
-	return (n);
-}
-
-int get_numsize(int num)
-{
-	int size;
-
-	size = 0;
-    while (num > 0)
+        *num *= -1;
+    }
+    n = *num;
+    while (n > 0)
     {
-      num /= 10;
+      n /= 10;
       size++;
     }
-	return (size);
+    if(*neg == 1)
+      size++;
+    return (size);
 }
 
 char *ft_itoa(int n)
@@ -39,23 +38,21 @@ char *ft_itoa(int n)
     char *num;
     int is_neg;
     int size;
-    
+
     is_neg = 0;
     size   = 0;
-	if (n == -2147483647)
-		return (ft_strdup("-2147483647"));
-	size = get_numsize(abs_sign(n, &is_neg));
-	if (n == 0)
-		return (ft_strdup("0"));
-    num  = (char *)ft_calloc(size + 2, sizeof(char));
+    if (n == -2147483648)
+        return (ft_strdup("-2147483648"));
+    size = get_numsize_signed(&n, &is_neg);
+    if (n == 0)
+        return (ft_strdup("0"));
+    num  = (char *)ft_calloc(size + 1, sizeof(char));
     if (!num)
         return (NULL);
-    num = num + size + 1;
-    while (n > 0)
+    while (size > 0)
     {
-        *num  = n % 10 + 48;
+        num[--size] = n % 10 + 48;
         n /= 10;
-		num--;
     }
     if (is_neg)
       num[0] = '-';
