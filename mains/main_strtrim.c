@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   main_strtrim.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/10 19:51:02 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/01 10:55:44 by hmontoya         ###   ########.fr       */
+/*   Created: 2023/06/01 13:13:55 by hmontoya          #+#    #+#             */
+/*   Updated: 2023/06/01 13:57:27 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 
-char *ft_strchr(const char *s, int c)
+int main (void)
 {
-	unsigned char *str;
-	unsigned char ch;
-	int i;
+	char s1[22] = "super cali super" ;
+	char set[6] = "super";
+	char *result;
 
-	str = (unsigned char *)s;
-	ch = (unsigned char) c;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if(str[i] == ch)
-			return ((char *)str + i);
-		str++;	
-	}
-	if(ch == '\0')
-		return((char *)str + i);
-	return (NULL);
+	/*printf("Escribe una cadena para cortar:\n");
+	scanf("%s", s1);
+	printf("Escribe el set de caracteres a cortar:\n");
+	scanf("%s", set);
+	printf("Preparando trim\n");*/
+	result = ft_strtrim(s1,set);
+	printf("Result:\n>>%s", result);
+	if (result)
+		free(result);
+	return (0);
 }
