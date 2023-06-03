@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 19:09:50 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/01 14:31:07 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/03 17:48:25 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int get_trimstart(const char *str, const char *set)
 {
-	int size_set;
+	int size_str;
 	char *start;
 	int i;
 
-	size_set = ft_strlen(set);
+	size_str = ft_strlen(str);
 	i = 0;
-	while (i < size_set)
+	while (i < size_str)
 	{
-		start = ft_strchr((char *)str,set[i]);
+		start = ft_strchr((char *)set,str[i]);
 		if(!start)
 		{
 			break;	
@@ -34,17 +34,15 @@ static int get_trimstart(const char *str, const char *set)
 
 static int get_trimend(const char *str, const char *set)
 {
-	int size_set;
 	char *end;
 	int i;
 	int j;
 	
-	size_set = ft_strlen(set);
-	i = size_set - 1;
+	i = ft_strlen(str) - 1;
 	j = 0;
 	while (i >= 0)
 	{
-		end = ft_strrchr((char *)str,set[i]);
+		end = ft_strrchr((char *)set,str[i]);
 		if(!end)
 		{
 			break;
@@ -66,8 +64,10 @@ char *ft_strtrim(char const *s1, char const *set)
 	if(set == NULL)
 		return (ft_strdup(s1));
 	start_pos = get_trimstart(s1, set);
+	if (start_pos >= (int)ft_strlen(s1))
+		return (ft_strdup(""));
 	end_pos   = get_trimend(s1, set);
-	newstr = ft_calloc(ft_strlen(s1) - start_pos - end_pos, sizeof(char));
+	newstr = ft_calloc(ft_strlen(s1) - start_pos - end_pos + 1, sizeof(char));
 	if(!newstr)
 		return (NULL);
 	i = 0;
