@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:36:50 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/06 18:04:56 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/06 20:34:03 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,24 +36,22 @@ static int verify_alloc(void *alloc)
 static int ft_count_cols(char *s, char c)
 {
 	char *set;
-	int numcols;
+	size_t numcols;
+	size_t i;
 
 	numcols = 0;
-	set = &c;
-	s = ft_strtrim(s, set);
-	if (!verify_alloc(s))
-		return (0);
-	while (*s)
+	while (*(s + i))
 	{
-		if (*s == c)
+		if (*(s + i) == c)
 		{
-			while (*s == c)
-				s++;
+			i += ft_skip_separator(s, c, i);
 			numcols++;
 		}
-		s++;
+		i++;
 	}
-	numcols++;
+	if (i > 0)
+		numcols++;
+	printf("Cols %i\n", numcols);
 	return (numcols);
 }
 
@@ -65,7 +63,7 @@ static char **ft_calloc2d(char const *s, char c, int numcols)
 
 	i = 0;
 	tmp = (char **)malloc(numcols * sizeof(char **));
-	if (!verify_alloc(tmp))
+	if (!verify_alloc(tmp)) 
 		return (NULL);
 	numcols = 0;
 	last_sep_pos = i;
@@ -92,32 +90,39 @@ char **ft_split(char const *s, char c)
 	char *tmp;
 	char **result;
 	int numcols;
-	int col;
-	int row;
-	int i;
+	size_t first_pos;
+	size_t last_pos
 
 	if (s == NULL)
 		return (NULL);
-	tmp = (char *)s;
+	tmp = ft_strtrim(s);
+	if (!verify_alloc(tmp))
+		return (NULL);
 	numcols = ft_count_cols(tmp, c);
 	printf("Numcols: %i\n", numcols);
 	if (numcols == 0)
 		return (NULL);
-	result = ft_calloc2d(tmp, c, numcols);
+	result = ft_calloc(numcols * sizeof(s)):
+	printf("Result allocated: %p\n", result);
 	if(!verify_alloc(result))
 		return (NULL);
-	printf("Calloc 2d done!!");
-	col = 0;
-	row = 0;
+	printf("Calloc 2d done!! (%p)(%lu)\n", result, sizeof(result));
 	i = 0;
-	while (*s && col < numcols - 1)
+	printf("Preparing result filling...\n");
+	while (*s && numcols--)
 	{
-		result[col++][row] = *(s + row); 
-		if (*s == c)
+		if (*(s + i) == c)
 		{
+			i += ft_skip_separator(s, c, i);
+			
 			row = 0;
-			s += row + 1;
+			col++;
+		    i += ft_skip_separator(s, c, i);
+			last_sep_pos = i -esult += i;
+			printf("Post col %i row %i iter %i", col, row, i);
 		} 
+		else
+		row++;
 		i++;
 	}
 	return (result);
