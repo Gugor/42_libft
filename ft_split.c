@@ -39,7 +39,11 @@ static int ft_count_cols(char *s, char c)
 	size_t numcols;
 	size_t i;
 
+    set = &c;
 	numcols = 0;
+	s = ft_strtrim(s, set);
+	if (!verify_alloc(s))
+		return (0);
 	while (*(s + i))
 	{
 		if (*(s + i) == c)
@@ -51,79 +55,56 @@ static int ft_count_cols(char *s, char c)
 	}
 	if (i > 0)
 		numcols++;
-	printf("Cols %i\n", numcols);
 	return (numcols);
 }
 
-static char **ft_calloc2d(char const *s, char c, int numcols)
+static void free_all(char **result, size_t cols)
 {
-	char **tmp;
-	int i;
-	int last_sep_pos;
-
-	i = 0;
-	tmp = (char **)malloc(numcols * sizeof(char **));
-	if (!verify_alloc(tmp)) 
-		return (NULL);
-	numcols = 0;
-	last_sep_pos = i;
-	while (*(s + i))
-	{
-		if(*(s + i) == c)
-		{
-			i += ft_skip_separator(s, c, i);
-			last_sep_pos = i - 1;
-			tmp[numcols] = ft_calloc(i - 2, sizeof(s));
-			if (!tmp[numcols])
-				return (NULL);
-			numcols++;		
-		}
-		i++;
-	}
-	if(i > 0)
-		tmp[++numcols] = ft_calloc(i - last_sep_pos - 1, sizeof(s));
-	return (tmp);
+    while (cols > 0)
+        free(result[cols--]);
+    result = NULL;
 }
 
 char **ft_split(char const *s, char c)
 {
 	char *tmp;
 	char **result;
-	int numcols;
-	size_t first_pos;
-	size_t last_pos
+	size_t numcols;
+    size_t currentcol;
+	size_t bow;
+	size_t eow; 
 
+    tmp = (char *)s;
+    bow = 0;
+	currentcol = bow;
 	if (s == NULL)
 		return (NULL);
-	tmp = ft_strtrim(s);
-	if (!verify_alloc(tmp))
-		return (NULL);
 	numcols = ft_count_cols(tmp, c);
-	printf("Numcols: %i\n", numcols);
 	if (numcols == 0)
 		return (NULL);
-	result = ft_calloc(numcols * sizeof(s)):
-	printf("Result allocated: %p\n", result);
+	result = ft_calloc(numcols, sizeof(s));
+    printf("Num Cols = %zu\n", numcols);
 	if(!verify_alloc(result))
 		return (NULL);
-	printf("Calloc 2d done!! (%p)(%lu)\n", result, sizeof(result));
-	i = 0;
-	printf("Preparing result filling...\n");
-	while (*s && numcols--)
+	while (*(s + bow  + eow) && currentcol < numcols - 1)
 	{
-		if (*(s + i) == c)
-		{
-			i += ft_skip_separator(s, c, i);
-			
-			row = 0;
-			col++;
-		    i += ft_skip_separator(s, c, i);
-			last_sep_pos = i -esult += i;
-			printf("Post col %i row %i iter %i", col, row, i);
-		} 
-		else
-		row++;
-		i++;
+        printf("CCol = %zu\n", numcols);
+		bow += ft_skip_separator(s, c, bow);
+		while (*(s + bow + eow) != c && *s)
+           bow ++;
+        result[currentcol++] = ft_substr(s, bow + 1, eow);
+        if(!result[currentcol])
+            free_all(result,currentcol);
+        currentcol++;
+	}
+    if(currentcol < 0)
+    {
+		while (*(s + bow + eow) != c && *s)
+            bow++;
+        result[currentcol++] = ft_substr(s, bow + 1, eow);
+        if(!result[currentcol])
+            free_all(result,currentcol);
+        currentcol++;
 	}
 	return (result);
 }
