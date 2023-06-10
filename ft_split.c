@@ -31,7 +31,6 @@ static int ft_count_cols(char *s, char c)
     set = &c;
 	numcols = 0;
 	i = 0;
-	s = ft_strtrim(s, set);
 	if (!s)
     {
         free(s);
@@ -78,7 +77,7 @@ static char **set_strcols(char *s, char c, size_t maxcols)
         while (*(s + eow) != c && *(s + eow))
             eow ++;
         result[currentcol] = ft_substr(s, 0, eow);
-        if(!result)
+        if(!result[currentcol])
             free_all(result,currentcol);
         s += eow;
         eow = 0;
@@ -93,25 +92,23 @@ char **ft_split(char const *s, char c)
 	size_t numcols;
 
     tmp = (char *)s;
-	if (s == NULL)
+	if (tmp == NULL)
 	{
-		result = ft_calloc(2, sizeof(s));
+		result = ft_calloc(2, sizeof(tmp));
 		result[0] = ft_strdup("");
+        if(result[0] == NULL)
+            free_all(result,0);
 		return (result);
 	}
+	tmp = ft_strtrim(s,&c);
+    if(!tmp)
+    {
+        free(tmp);
+        return (NULL);
+    }
 	numcols = ft_count_cols(tmp, c);
     result = set_strcols(tmp, c, numcols);
-	/*while (*(tmp + eow) && currentcol < numcols)
-	{
-		tmp += ft_skip_separator(tmp, c);
-		while (*(tmp + eow) != c && *(tmp + eow))
-           eow ++;
-        result[currentcol] = ft_substr(tmp, 0, eow);
-        if(!result)
-            free_all(result,currentcol);
-		tmp += eow;
-		eow = 0;
-        currentcol++;
-	}*/
+    if(!result)
+        free_all(result,numcols);
 	return (result);
 }
