@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:39:35 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/07 19:19:59 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:12:51 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,31 @@ int main (void)
     printf("\33[1;32mchar\33[1;0m c = \33[1;36m\"%c\"\33[1;0m\n\n",t5_c);
     printf("Result:\n");
     char **t5_result = ft_split(t5_s,t5_c);
-    ft_print2dchar(t5_result);
+	ft_print2dchar(t5_result);
+
+	//Test 6
+    printf("\n\33[1;34mTest 6: s=\\0aa\\0bbb\n");
+    char t6_s[100] = "\0aa\0bbb";
+    char t6_c     = '\0';
+
+    printf("\33[1;37mInputs:\33[1;0m\n");
+    printf("\33[1;32mchar\33[1;0m s[] = \33[1;36m\"%s\"\33[1;0m\n",t6_s);
+    printf("\33[1;32mchar\33[1;0m c = \33[1;36m\"%c\"\33[1;0m\n\n",t6_c);
+    printf("Result:\n");
+    char **t6_result = ft_split(t6_s,t6_c);
+    ft_print2dchar(t6_result);
+
+	//Test 7
+    printf("\n\33[1;34mTest 7: c is in the beginning and the end");
+    char t7_s[100] = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse ";
+    char t7_c     = ' ';
+
+    printf("\33[1;37mInputs:\33[1;0m\n");
+    printf("\33[1;32mchar\33[1;0m s[] = \33[1;36m\"%s\"\33[1;0m\n",t7_s);
+    printf("\33[1;32mchar\33[1;0m c = \33[1;36m\"%c\"\33[1;0m\n\n",t7_c);
+    printf("Result:\n");
+    char **t7_result = ft_split(t7_s,t7_c);
+    ft_print2dchar(t7_result);
 	
 	return (0);
 }
