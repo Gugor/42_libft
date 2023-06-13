@@ -22,6 +22,7 @@ static void ft_print2dchar(char **arrstr)
 		printf(">> %s\n",arrstr[i]);
 		i++;
 	}
+    printf(">> Null(%i * %lu) = %d\n",i + 1,sizeof(arrstr[i]),arrstr[i] == NULL);
 }
 
 int main (void)
@@ -71,7 +72,7 @@ int main (void)
     printf("\33[1;32mchar\33[1;0m c = \33[1;36m\"%c\"\33[1;0m\n\n",t4_c);
     printf("Result:\n");
 	char **t4_result = ft_split(t4_s,t4_c);
-    ft_print2dchar(ft_split(t4_s,t4_c));
+    ft_print2dchar(t4_result);
 
 	//Test 5
     printf("\n\33[1;34mTest 4: phrase input space saparator\n");
@@ -98,7 +99,7 @@ int main (void)
     ft_print2dchar(t6_result);
 
 	//Test 7
-    printf("\n\33[1;34mTest 7: c is in the beginning and the end");
+    printf("\n\33[1;34mTest 7: c is in the beginning and the end\n");
     char t7_s[100] = "   lorem   ipsum dolor     sit amet, consectetur   adipiscing elit. Sed non risus. Suspendisse ";
     char t7_c     = ' ';
 
@@ -108,6 +109,19 @@ int main (void)
     printf("Result:\n");
     char **t7_result = ft_split(t7_s,t7_c);
     ft_print2dchar(t7_result);
+
+   // "  tripouille  42  ", ' '
+	// Test 8
+    printf("\n\33[1;34mTest 8: \"  tripouille  42  \", \' \' \n");
+    char t8_s[100] = "  tripouille  42  ";
+    char t8_c     = ' ';
+
+     printf("\33[1;37mInputs:\33[1;0m\n");
+     printf("\33[1;32mchar\33[1;0m s[] = \33[1;36m\"%s\"\33[1;0m\n",t8_s);
+     printf("\33[1;32mchar\33[1;0m c = \33[1;36m\"%c\"\33[1;0m\n\n",t8_c);
+     printf("Result:\n");
+     char **t8_result = ft_split(t8_s,t8_c);
+     ft_print2dchar(t8_result);
 	
-	return (0);
+     return (0);
 }

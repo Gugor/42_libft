@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "./memo_handling/ft_memo_handling.h"
 
 static size_t ft_skip_separator(const char *s, char c)
 {
@@ -31,11 +32,6 @@ static int ft_count_cols(char *s, char c)
     set = &c;
 	numcols = 0;
 	i = 0;
-	if (!s)
-    {
-        free(s);
-        return (0);
-    }
 	while (*(s + i))
 	{
 		if (*(s + i) == c)
@@ -52,8 +48,13 @@ static int ft_count_cols(char *s, char c)
 
 static void free_all(char **result, size_t cols)
 {
+    printf("Freeing memory...\n");
     while (cols > 0)
+    {
+        printf("Freeing %p\n",result[cols]);
         free(result[cols--]);
+        printf("Freed:%d\n", result[cols-1] == NULL );
+    }
     free(result);
     result = NULL;
 }
@@ -65,7 +66,8 @@ static char **set_strcols(char *s, char c, size_t maxcols)
     
     currentcol = 0;
     eow = 0;
-	result = ft_calloc(maxcols + 1, sizeof(s));
+	result = ft_calloc(maxcols + 1, sizeof(s));    
+    printf("Mem alloc d1(%lu * %lu) = %lu\n",maxcols + 1,sizeof(s),(maxcols + 1) * sizeof(s));
 	if(!result)
     {
         free(result);
@@ -77,6 +79,7 @@ static char **set_strcols(char *s, char c, size_t maxcols)
         while (*(s + eow) != c && *(s + eow))
             eow ++;
         result[currentcol] = ft_substr(s, 0, eow);
+        LOG_MEMO_ALLOC(result[currentcol],ft_strlen(result[currentcol])*sizeof(result));
         if(!result[currentcol])
             free_all(result,currentcol);
         s += eow;
@@ -107,6 +110,7 @@ char **ft_split(char const *s, char c)
         return (NULL);
     }
 	numcols = ft_count_cols(tmp, c);
+    printf("Mem items = %lu\n",numcols);
     result = set_strcols(tmp, c, numcols);
     if(!result)
         free_all(result,numcols);
