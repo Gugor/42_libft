@@ -6,11 +6,11 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 17:15:24 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/03 17:27:06 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:44:19 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(int c)
+int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 127 );
+	return (c >= 0 && c <= 127);
 }
