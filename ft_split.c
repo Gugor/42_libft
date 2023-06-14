@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:36:50 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/13 19:30:49 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:40:48 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static size_t ft_skip_separator(const char *s, char c)
 	size_t i;
 
 	i = 0;
-	while (s && *(s + i) && *(s + i) == c)
+	while (*(s + i) && *(s + i) == c)
 		i++;
 	return (i);
 }
@@ -38,17 +38,16 @@ static int ft_count_cols(char *s, char c)
 		if (*(s + i) == c)
 		{
 			i += ft_skip_separator(s + i, c);
-			if (s && *(s + i) != c && *(s + i) != '\0')
+			if (*(s + i) && *(s + i) != c)
 				numcols++;
 		}
 		else
 			i++;
 	}
-	numcols++;
-	return (numcols);
+	return (++numcols);
 }
 
-static void free_all(char **result, size_t cols)
+static char **free_all(char **result, size_t cols)
 {
     while (cols > 0)
     {
@@ -57,30 +56,30 @@ static void free_all(char **result, size_t cols)
     }
     free(result);
     result = NULL;
+	return (NULL);
 }
 
 static char **set_strcols(char *s, char c, size_t maxcols)
 {
     char **result;
     size_t currentcol;
-    size_t eow;
+    size_t end;
    
     currentcol = 0;
-    eow = 0;
+    end = 0;
 	result = ft_calloc(maxcols + 1, sizeof(char *));    
 	if(!result)
 		return (NULL);
     while (currentcol < maxcols)
     {
         s += ft_skip_separator(s, c);
-        while (*(s + eow) != c && *(s + eow))
-            eow ++;
-        result[currentcol] = ft_substr(s, 0, eow);
+        while (*(s + end) != c && *(s + end))
+            end ++;
+        result[currentcol] = ft_substr(s, 0, end);
         if(!result[currentcol])
-            free_all(result,currentcol);
-        s += eow;
-        eow = 0;
-	//	printf ("tab[%zu] = %s\n", currentcol, result[currentcol]);
+            return(free_all(result,currentcol));
+        s += end;
+        end = 0; 
         currentcol++;
      }
     return (result);
@@ -95,7 +94,5 @@ char **ft_split(char const *s, char c)
     tmp = (char *)s;
 	numcols = ft_count_cols(tmp, c);
     result = set_strcols(tmp, c, numcols);
-    if(!result)
-		free_all(result,numcols);
 	return (result);
 }

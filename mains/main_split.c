@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:39:35 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/13 19:06:21 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:41:06 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main (void)
 	//Test 11
     printf("zxi\n\33[1;34mTest 11: \n");
     char *t11_s = "      split       this for   me  !       ";
-    char t11_c     = ' ';
+    char t11_c  = ' ';
 
     printf("\33[1;37mInputs:\33[1;0m\n");
     printf("\33[1;32mchar\33[1;0m s[] = \33[1;36m\"%s\"\33[1;0m\n",t11_s);
