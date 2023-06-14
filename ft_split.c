@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:36:50 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/14 17:40:48 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:43:03 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,8 @@ static int ft_count_cols(char *s, char c)
 static char **free_all(char **result, size_t cols)
 {
     while (cols > 0)
-    {
         free(result[--cols]);
-		result[cols] = NULL;
-    }
     free(result);
-    result = NULL;
 	return (NULL);
 }
 
