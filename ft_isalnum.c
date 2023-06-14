@@ -6,14 +6,15 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 16:23:48 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/05/09 18:04:34 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/14 18:30:01 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isalnum(char c)
 {
-	unsigned char ch;
+	unsigned char	ch;
 
 	ch = (unsigned char)c;
-	return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') || (ch >= '0' && ch <= '9'));
+	return ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')
+		|| (ch >= '0' && ch <= '9'));
 }
