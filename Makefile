@@ -20,7 +20,7 @@ OBJ = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen
 	  ft_strlcpy.o ft_strlcat.o ft_atoi.o ft_calloc.o ft_strdup.o ft_strjoin.o ft_substr.o \
 	  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_itoa.o ft_strmapi.o \
 	  ft_striteri.o ft_strtrim.o ft_split.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o \
-	  ft_lstlast.o
+	  ft_lstlast.o ft_lstadd_back.o
 BOBJ = ft_lstnew.o ft_lstadd_front.o
 all: $(NAME)
 
