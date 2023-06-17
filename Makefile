@@ -6,7 +6,7 @@
 #    By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 16:24:04 by hmontoya          #+#    #+#              #
-#    Updated: 2023/06/17 13:11:36 by hmontoya         ###   ########.fr        #
+#    Updated: 2023/06/17 20:55:51 by hmontoya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ OBJ = ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen
 	  ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_itoa.o ft_strmapi.o \
 	  ft_striteri.o ft_strtrim.o ft_split.o 
 BOBJ = ft_lstnew.o ft_lstadd_front.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o \
-      ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o 
+      ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o 
 all: $(NAME)
 
 %.o : %.c $(DEPS)
