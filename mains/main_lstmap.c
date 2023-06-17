@@ -6,7 +6,7 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 19:40:29 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/17 21:22:33 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/17 22:00:36 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,6 @@ static void print_nodes(t_list **list)
 
 int main(void)
 {
-	//Test 2
-    //== Test Variable
-    int t1_num = 2;
-    char *t1_description = "new node could fail";
-    //== Variables
-    t_list *t1_lst = ft_lstnew("Hola!");
-    ft_lstadd_back(&t1_lst,ft_lstnew("como estas?"));
-    ft_lstadd_back(&t1_lst,ft_lstnew("Fin dialogo?"));
-    //== Print test
-    printf(".......................................................\n");
-    printf("\33[1;34m[TEST %i] : %s\33[1;0m\n", t1_num, t1_description);
-    t_list *t1_maped = ft_lstmap(t1_lst, &ft_map, &ft_del);
-    print_nodes(&t1_maped);
-    printf(".......................................................\n");
-    printf("\n");
 	//Test 1
     //== Test Variable
     int t1_num = 1;
