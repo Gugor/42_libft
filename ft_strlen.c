@@ -6,15 +6,15 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 18:59:55 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/14 17:48:12 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/18 13:30:03 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

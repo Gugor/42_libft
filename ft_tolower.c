@@ -6,17 +6,16 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 16:59:46 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/14 18:01:24 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:18:00 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		return c + 32;
+		return (c + 32);
 	else
-		return c;
+		return (c);
 }
