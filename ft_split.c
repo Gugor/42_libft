@@ -6,12 +6,11 @@
 /*   By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 18:36:50 by hmontoya          #+#    #+#             */
-/*   Updated: 2023/06/14 19:20:48 by hmontoya         ###   ########.fr       */
+/*   Updated: 2023/06/21 18:29:43 by hmontoya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "./memo_handling/ft_memo_handling.h"
 
 static size_t	ft_skip_separator(const char *s, char c)
 {
