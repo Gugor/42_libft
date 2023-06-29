@@ -6,7 +6,7 @@
 #    By: hmontoya <hmontoya@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/20 16:24:04 by hmontoya          #+#    #+#              #
-#    Updated: 2023/06/21 18:16:07 by hmontoya         ###   ########.fr        #
+#    Updated: 2023/06/20 20:17:26 by hmontoya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME) : $(OBJ)
 bonus : $(NAME) $(BOBJ)
 	@ar rcsv $(NAME) $(BOBJ)
 clean:
-	@rm -vf $(OBJ)
+	@rm -vf $(OBJ) $(BOBJ)
 	@echo "~. You broke the computer \('o')/ !!!!"
 	@echo "~. No just kidding. All files where cleaned. ; D"
 
